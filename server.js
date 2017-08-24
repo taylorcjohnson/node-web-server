@@ -37,6 +37,7 @@ hbs.registerHelper('screamIt', (text) => {
 })
 
 // HTTP route handlers
+// Example: render template with config
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
@@ -50,6 +51,7 @@ app.get('/about', (req, res) => {
     })
 })
 
+// Example: render JSON
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to handle request'
