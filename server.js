@@ -4,7 +4,10 @@ const fs = require('fs')
 
 let app = express()
 
+// Tells handlebars - hbs where the partials are located
+// They are then registered with the hbs object
 hbs.registerPartials(__dirname + '/views/partials')
+// Set the view engine for app to handlebars
 app.set('view engine', 'hbs')
 
 // Logging middleware
@@ -28,6 +31,7 @@ app.use((req, res, next) => {
 // Serve static directory
 app.use(express.static(__dirname + '/public'))
 
+// Handlebars can use helper functions; they must be registered first
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear()
 })
